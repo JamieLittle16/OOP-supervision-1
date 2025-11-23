@@ -136,6 +136,20 @@ public class LinkedList {
     return next.getVal();
   }
 
+  public void reverse() {
+    Node prev = null;
+    Node current = head;
+    Node next = null;
+
+    while (current != null) {
+      next = current.getNext();
+      current.setNext(prev);
+      prev = current;
+      current = next;
+    }
+    head = prev;
+  }
+
   public LinkedList() {
     head = null;
   }

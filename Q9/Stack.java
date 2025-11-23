@@ -46,15 +46,15 @@ public class Stack {
   }
 
   public Stack(int[] arr) {
-    list = new LinkedList();
+    list = new LinkedList(arr);
     size = 0;
-    for (int num : arr) {
-      push(num);
-    }
+    list.reverse();
   }
 
   public Stack(LinkedList list) {
+    list.reverse();
     this.list = list;
     size = list.length();
+    list.reverse(); // In case the linked list is used elsewhere
   }
 }
