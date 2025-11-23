@@ -1,3 +1,5 @@
+package Q6;
+
 import java.util.NoSuchElementException;
 
 public class LinkedList {
@@ -10,7 +12,8 @@ public class LinkedList {
     return head.getVal();
   }
 
-  private Node getHeadNode() {
+  // Internal Node structure must be exposed for Q7
+  public Node getHeadNode() {
     if (head == null) {
       throw new NoSuchElementException("List is empty");
     }
@@ -86,15 +89,17 @@ public class LinkedList {
     prev.setNext(next.getNext());
   }
 
-  public void pop(int n) {
-    Node next = getHeadNode();
-
+  public int pop(int n) {
     if (n < 0) {
       throw new IndexOutOfBoundsException("Index cannot be negative");
     }
+    int rtn = 0;
+    Node next = getHeadNode();
+
     if (n == 0) {
+      rtn = head.getVal();
       head = head.getNext();
-      return;
+      return rtn;
     }
 
     int i = 0;
@@ -108,7 +113,10 @@ public class LinkedList {
     if (next.getNext() == null) {
       throw new IndexOutOfBoundsException("Index " + n + " is out of bounds");
     }
+    rtn = next.getNext().getVal();
     next.setNext(next.getNext().getNext());
+
+    return rtn;
   }
 
   public int getNth(int n) {
@@ -126,5 +134,15 @@ public class LinkedList {
       i++;
     }
     return next.getVal();
+  }
+
+  public LinkedList() {
+    head = null;
+  }
+
+  public LinkedList(int[] arr) {
+    for (int num : arr) {
+      this.add(num);
+    }
   }
 }

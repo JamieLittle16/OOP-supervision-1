@@ -1,3 +1,5 @@
+package Q6;
+
 public class Node {
   private int data;
   private Node next;
@@ -15,11 +17,11 @@ public class Node {
     data = val;
   }
 
-  protected Node getNext() {
+  public Node getNext() {
     return next;
   }
 
-  protected void setNext(Node n) {
+  public void setNext(Node n) {
     next = n;
   }
 }
