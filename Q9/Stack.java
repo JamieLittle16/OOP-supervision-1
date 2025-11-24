@@ -47,7 +47,7 @@ public class Stack {
 
   public Stack(int[] arr) {
     list = new LinkedList(arr);
-    size = 0;
+    size = list.length();
     list.reverse();
   }
 
