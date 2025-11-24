@@ -159,4 +159,8 @@ public class LinkedList {
       this.add(num);
     }
   }
+
+  public LinkedList(LinkedList list) {
+    head = new Node(list.head);
+  }
 }

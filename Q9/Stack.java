@@ -57,4 +57,9 @@ public class Stack {
     size = list.length();
     list.reverse(); // In case the linked list is used elsewhere
   }
+
+  public Stack(Stack stack) {
+    size = stack.size;
+    list = new LinkedList(list);
+  }
 }
